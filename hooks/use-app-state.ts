@@ -5,12 +5,12 @@ import { devtools } from 'zustand/middleware';
 
 // Types
 export type PlatformType = 'WEB' | 'HUBTEL APP' | 'HUBTEL POS' | 'USSD' | 'NONE';
-export type ResponseType = 'initiation' | 'response' | 'timeout' | 'release';
+export type ResponseType = 'initiation' | 'response' | 'timeout' | 'release'| 'addtocart';
 
 export interface RequestPayload {
     url: string;
     platform: string;
-    device: string;
+    device: SimulatedDevices;
     operator: string;
     ussdCode: string;
     mobile: string;
@@ -40,6 +40,10 @@ export interface RequestLog {
     timestamp: Date;
 }
 
+export type SimulatedDevices = 'android' | 'ios' | 'web';
+
+
+
 // Initial state
 const initialState = {
     showDialog: false,
@@ -47,7 +51,7 @@ const initialState = {
     formState: {
         url: 'http://localhost:2000/api/requests/interaction',
         platform: 'HUBTEL-MALL',
-        device: 'mobile_android',
+        device: 'android',
         operator: 'mtn',
         mobile: '233547469379',
         ussdCode: '*713#',

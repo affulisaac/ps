@@ -41,63 +41,25 @@ export function LogViewer() {
             No logs found
           </div>
         ) : (
-          <div className="space-y-4 p-4">
-            {filteredLogs.map((log, index) => (
-              <div
-                key={index}
-                className="rounded-lg border bg-card text-card-foreground"
-              >
-                <div className="border-b bg-muted/40 p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className="font-mono text-sm">
-                        #{filteredLogs.length - index}
-                      </span>
-                      <span className="text-sm font-medium">
-                        {log.request.type?.toUpperCase()}
-                      </span>
-                    </div>
-                    <span className="text-sm text-muted-foreground">
-                      {formatDistanceToNow(log.timestamp, { addSuffix: true })}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 divide-x">
-                  <div className="p-4">
-                    <h4 className="mb-2 text-sm font-medium">Request</h4>
-                    <pre className="whitespace-pre-wrap text-sm">
-                      {JSON.stringify(
-                        {
-                          type: log.request.type,
-                          mobile: log.request.mobile,
-                          message: log.request.message,
-                          operator: log.request.operator,
-                        },
-                        null,
-                        2
-                      )}
-                    </pre>
-                  </div>
-                  <div className="p-4">
-                    <h4 className="mb-2 text-sm font-medium">Response</h4>
-                    <pre className="whitespace-pre-wrap text-sm">
-                      {JSON.stringify(
-                        {
-                          type: log.response.type,
-                          message: log.response.message,
-                          dataType: log.response.dataType,
-                          data: log.response.data,
-                        },
-                        null,
-                        2
-                      )}
-                    </pre>
-                  </div>
-                </div>
+          <div className="space-y-4">
+          {logs.map((log, index) => (
+            <div key={index} className="p-4 rounded-lg border-b">
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="font-medium">Request {index + 1}</h3>
+                <span className="text-sm text-muted-foreground">
+                  {log.timestamp.toLocaleTimeString()}
+                </span>
               </div>
-            ))}
-          </div>
+              <pre className="text-sm bg-muted p-2 rounded overflow-x-auto">
+                {JSON.stringify(log.request, null, 2)}
+              </pre>
+              <h3 className="font-medium my-2">Response</h3>
+              <pre className="text-sm bg-muted p-2 rounded overflow-x-auto">
+                {JSON.stringify(log.response, null, 2)}
+              </pre>
+            </div>
+          ))}
+        </div>
         )}
       </ScrollArea>
     </div>

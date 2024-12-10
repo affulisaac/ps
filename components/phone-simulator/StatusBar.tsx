@@ -1,11 +1,12 @@
 'use client';
 
+import { SimulatedDevices } from '@/hooks/use-app-state';
 import { cn } from '@/lib/utils';
 import { Battery, Signal, Wifi } from 'lucide-react';
 
 interface StatusBarProps {
   operator: string;
-  theme: 'ios' | 'android';
+  theme: SimulatedDevices
 }
 
 export function StatusBar({ operator, theme }: StatusBarProps) {

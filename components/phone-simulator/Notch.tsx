@@ -1,7 +1,9 @@
 'use client';
 
+import { SimulatedDevices } from "@/hooks/use-app-state";
+
 interface NotchProps {
-  theme: 'ios' | 'android';
+  theme: SimulatedDevices 
 }
 
 export function Notch({ theme }: NotchProps) {

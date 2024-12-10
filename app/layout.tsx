@@ -1,12 +1,12 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'USSD Simulator',
-  description: 'A modern USSD simulator for testing mobile banking flows',
+  title: "Hubtel Programmable Service Simulator",
+  description: "A modern USSD simulator for testing mobile banking flows",
 };
 
 export default function RootLayout({

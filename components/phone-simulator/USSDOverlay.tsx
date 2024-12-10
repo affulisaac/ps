@@ -24,9 +24,9 @@ export function USSDOverlay({
 
   if (!showDialog ) return null;
 
-  const isReleaseType = sessionResponse.type?.toLocaleLowerCase() === 'release';
-  const isInputMode = sessionResponse.type?.toLocaleLowerCase() === 'response';
-  const displayContent = sessionResponse.label ?? sessionResponse.message 
+  const isReleaseType = sessionResponse?.type?.toLocaleLowerCase() === 'release';
+  const isInputMode = sessionResponse?.type?.toLocaleLowerCase() === 'response';
+  const displayContent = sessionResponse?.label ?? sessionResponse?.message 
 
   const handleDismiss = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -39,6 +39,8 @@ export function USSDOverlay({
     setUserInput('')
     console.log(response)
   };
+
+
 
   return (
     <div 

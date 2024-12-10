@@ -1,4 +1,4 @@
-import { ResponseTypes } from "@/hooks/use-app-state";
+import { ResponseType } from "@/hooks/use-app-state";
 
 export interface USSDConfig {
   mobile: string;
@@ -13,7 +13,7 @@ export interface USSDConfig {
 }
 
 export interface USSDRequest {
-  type: ResponseTypes
+  type: ResponseType
   mobile: string;
   message: string;
   serviceCode: string;
@@ -38,11 +38,10 @@ export interface USSDResponse {
 }
 
 export type PhoneTheme = 'ios' | 'android';
-export type Platform = 'USSD' | 'HUBTEL-MALL';
+export type Platform = 'USSD' | 'HUBTEL-MALL' | 'WEB';
 
 export interface NomineeData {
   display: string;
   value: string;
   amount: number;
 }
-
